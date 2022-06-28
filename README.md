@@ -5,3 +5,5 @@ Get up and running with Scala on your computer. Complete an example assignments 
 
 1. [Assignment 01](https://www.coursera.org/learn/scala-functional-programming/programming/EoeMo/example) - Example
 2. [Assignment 02](https://www.coursera.org/learn/scala-functional-programming/programming/DV6Vv/recursion) - Recursion
+3. [Assignment 03](https://www.coursera.org/learn/scala-functional-programming/programming/Edqdi/functional-sets) - Functional Sets
+4. 
