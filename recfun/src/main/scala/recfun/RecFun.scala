@@ -19,21 +19,21 @@ object RecFun extends RecFunInterface {
       true
     }
 
-//    def getPascalNumber(timesMultipliedBy: Int, result: Double): Double = {
-//      // Math.pow(11, r).toDouble
-//      if timesMultipliedBy == 0 then result else getPascalNumber((timesMultipliedBy - 1), 11.0 * result)
-//    }
+    //    def getPascalNumber(timesMultipliedBy: Int, result: Double): Double = {
+    //      // Math.pow(11, r).toDouble
+    //      if timesMultipliedBy == 0 then result else getPascalNumber((timesMultipliedBy - 1), 11.0 * result)
+    //    }
 
-//    def getNumberAtSpot: Int = {
-//      println(getPascalNumber(r, 1.0))
-//      getPascalNumber(r, 1.0).formatted("%f").charAt(c).toString.toInt
-//    }
+    //    def getNumberAtSpot: Int = {
+    //      println(getPascalNumber(r, 1.0))
+    //      getPascalNumber(r, 1.0).formatted("%f").charAt(c).toString.toInt
+    //    }
 
-    def getPascalNumber(c: Int, r:Int): Int = {
-      if (r<0 || c<0 || c>r) then return 0
+    def getPascalNumber(c: Int, r: Int): Int = {
+      if (r < 0 || c < 0 || c > r) then return 0
       if (r == 0 && c == 0) then return 1
 
-      return getPascalNumber(c, r-1) +  getPascalNumber(c-1, r-1)
+      return getPascalNumber(c, r - 1) + getPascalNumber(c - 1, r - 1)
     }
 
     verifyInputs
@@ -70,6 +70,6 @@ object RecFun extends RecFunInterface {
     if (money < 0) then return 0
     if (coins.isEmpty) then return 0
 
-    countChange(money-coins.head, coins) + countChange(money, coins.tail)
+    countChange(money - coins.head, coins) + countChange(money, coins.tail)
   }
 }

@@ -31,8 +31,8 @@ object TweetReader:
     val buf = StringBuffer()
     for tw <- tws do
       val json = "{ \"user\": \"" + tw.user + "\", \"text\": \"" +
-                                    tw.text.replaceAll(""""""", "\\\\\\\"") + "\", \"retweets\": " +
-                                    tw.retweets + ".0 }"
+        tw.text.replaceAll(""""""", "\\\\\\\"") + "\", \"retweets\": " +
+        tw.retweets + ".0 }"
       buf.append(json + ",\n")
     buf.toString
 
@@ -50,12 +50,12 @@ object TweetReader:
 
   val tweetMap: Map[String, List[Tweet]] =
     Map() ++ Seq((sites(0) -> gizmodoTweets),
-                 (sites(1) -> techCrunchTweets),
-                 (sites(2) -> engadgetTweets),
-                 (sites(3) -> amazondealsTweets),
-                 (sites(4) -> cnetTweets),
-                 (sites(5) -> gadgetlabTweets),
-                 (sites(6) -> mashableTweets))
+      (sites(1) -> techCrunchTweets),
+      (sites(2) -> engadgetTweets),
+      (sites(3) -> amazondealsTweets),
+      (sites(4) -> cnetTweets),
+      (sites(5) -> gadgetlabTweets),
+      (sites(6) -> mashableTweets))
 
   val tweetSets: List[TweetSet] = sources.map(tweets => toTweetSet(tweets))
 

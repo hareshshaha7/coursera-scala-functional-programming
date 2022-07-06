@@ -16,8 +16,8 @@ object Lists:
     *  - `xs.tail: List[Int]` returns the tail of the list `xs`, i.e. the the
     *    list `xs` without its `head` element
     *
-    *  ''Hint:'' instead of writing a `for` or `while` loop, think of a recursive
-    *  solution.
+    * ''Hint:'' instead of writing a `for` or `while` loop, think of a recursive
+    * solution.
     *
     * @param xs A list of natural numbers
     * @return The sum of all elements in `xs`
@@ -41,7 +41,7 @@ object Lists:
     */
   def max(xs: List[Int]): Int = {
     xs match {
-      case ::(head, next) => xs.reduce((a, b) => if (a>b) a else b)
+      case ::(head, next) => xs.reduce((a, b) => if (a > b) a else b)
       case Nil => throw new NoSuchElementException("List can not be empty")
     }
   }

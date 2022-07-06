@@ -81,8 +81,7 @@ class RecFunSuite extends munit.FunSuite {
       pascal(5, 1)
       fail("No exception has been thrown")
     }
-    catch
-    {
+    catch {
       case e: IllegalArgumentException => ()
     }
   }

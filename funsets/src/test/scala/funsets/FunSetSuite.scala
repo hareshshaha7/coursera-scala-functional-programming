@@ -5,7 +5,7 @@ package funsets
  *
  * To run this test suite, start "sbt" then run the "test" command.
  */
-class FunSetSuite extends munit.FunSuite:
+class FunSetSuite extends munit.FunSuite :
 
   import FunSets.*
 
@@ -21,7 +21,7 @@ class FunSetSuite extends munit.FunSuite:
    * Instead of copy-pasting the code for creating the set into every test, we can
    * store it in the test class using a val:
    *
-   *   val s1 = singletonSet(1)
+   * val s1 = singletonSet(1)
    *
    * However, what happens if the method "singletonSet" has a bug and crashes? Then
    * the test methods are not even executed, because creating an instance of the
@@ -50,7 +50,7 @@ class FunSetSuite extends munit.FunSuite:
      * We create a new instance of the "TestSets" trait, this gives us access
      * to the values "s1" to "s3".
      */
-    new TestSets:
+    new TestSets :
       /**
        * The string argument of "assert" is a message that is printed in case
        * the test fails. This helps identifying which assertion failed.
@@ -59,7 +59,7 @@ class FunSetSuite extends munit.FunSuite:
   }
 
   test("union contains all elements of each set") {
-    new TestSets:
+    new TestSets :
       val s = union(s1, s2)
       assert(contains(s, 1), "Union 1")
       assert(contains(s, 2), "Union 2")
@@ -67,6 +67,6 @@ class FunSetSuite extends munit.FunSuite:
   }
 
 
-
   import scala.concurrent.duration.*
+
   override val munitTimeout = 10.seconds

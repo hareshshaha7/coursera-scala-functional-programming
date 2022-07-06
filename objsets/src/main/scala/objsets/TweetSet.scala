@@ -30,7 +30,7 @@ class Tweet(val user: String, val text: String, val retweets: Int):
  *
  * [1] http://en.wikipedia.org/wiki/Binary_search_tree
  */
-abstract class TweetSet extends TweetSetInterface:
+abstract class TweetSet extends TweetSetInterface :
 
   /**
    * This method takes a predicate and returns a subset of all the elements
@@ -106,7 +106,7 @@ abstract class TweetSet extends TweetSetInterface:
    */
   def foreach(f: Tweet => Unit): Unit
 
-class Empty extends TweetSet:
+class Empty extends TweetSet :
   override def toString: String = "Empty"
 
   def filterAcc(p: Tweet => Boolean, acc: TweetSet): TweetSet = acc
@@ -131,19 +131,19 @@ class Empty extends TweetSet:
 
   def foreach(f: Tweet => Unit): Unit = ()
 
-class NonEmpty(elem: Tweet, left: TweetSet, right: TweetSet) extends TweetSet:
+class NonEmpty(elem: Tweet, left: TweetSet, right: TweetSet) extends TweetSet :
   override def toString: String =
-  "Tweet: " + elem + " , left: " + left + " , right: " + right
+    "Tweet: " + elem + " , left: " + left + " , right: " + right
 
   def filterAcc(p: Tweet => Boolean, acc: TweetSet): TweetSet =
     if (p(elem)) left.filterAcc(p, right.filterAcc(p, acc.incl(elem)))
     else left.filterAcc(p, right.filterAcc(p, acc))
 
-//    var temp = acc
-//    if p(elem) then temp = acc.incl(elem)
-//    left.filterAcc(p, temp).union(right.filterAcc(p, temp))
+  //    var temp = acc
+  //    if p(elem) then temp = acc.incl(elem)
+  //    left.filterAcc(p, temp).union(right.filterAcc(p, temp))
 
-//  def union(that: TweetSet): TweetSet = left.union(right).union(that).incl(elem)
+  //  def union(that: TweetSet): TweetSet = left.union(right).union(that).incl(elem)
   def union(that: TweetSet): TweetSet = this.filterAcc(f => true, that)
 
   def isEmpty = false
@@ -197,21 +197,28 @@ class NonEmpty(elem: Tweet, left: TweetSet, right: TweetSet) extends TweetSet:
 
 trait TweetList:
   def head: Tweet
+
   def tail: TweetList
+
   def isEmpty: Boolean
+
   def foreach(f: Tweet => Unit): Unit =
     if !isEmpty then
       f(head)
       tail.foreach(f)
 
-object Nil extends TweetList:
+object Nil extends TweetList :
   override def toString: String = " [Nil] "
+
   def head = throw java.util.NoSuchElementException("head of EmptyList")
+
   def tail = throw java.util.NoSuchElementException("tail of EmptyList")
+
   def isEmpty = true
 
-class Cons(val head: Tweet, val tail: TweetList) extends TweetList:
-  override def toString: String = " [head: "+head+" , tail: "+tail+" ] "
+class Cons(val head: Tweet, val tail: TweetList) extends TweetList :
+  override def toString: String = " [head: " + head + " , tail: " + tail + " ] "
+
   def isEmpty = false
 
 
@@ -228,6 +235,6 @@ object GoogleVsApple:
    */
   lazy val trending: TweetList = ???
 
-object Main extends App:
+object Main extends App :
   // Print the trending tweets
   GoogleVsApple.trending foreach println

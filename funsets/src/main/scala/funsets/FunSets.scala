@@ -3,7 +3,7 @@ package funsets
 /**
  * 2. Purely Functional Sets.
  */
-trait FunSets extends FunSetsInterface:
+trait FunSets extends FunSetsInterface :
   /**
    * We represent a set by its characteristic function, i.e.
    * its `contains` predicate.
@@ -59,7 +59,8 @@ trait FunSets extends FunSetsInterface:
       else if bound < a then
         true
       else
-        iter(a+1)
+        iter(a + 1)
+
     iter(-bound)
 
   /**
@@ -77,6 +78,7 @@ trait FunSets extends FunSetsInterface:
       else if (s(a)) union(singletonSet(f(a)), iterate(a + 1))
       else iterate(a + 1)
     }
+
     iterate(-bound)
   }
 
