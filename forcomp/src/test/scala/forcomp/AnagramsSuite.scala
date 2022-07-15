@@ -90,7 +90,12 @@ class AnagramsSuite extends munit.FunSuite :
       List("rulez", "Linux"),
       List("Linux", "rulez")
     )
-    assertEquals(sentenceAnagrams(sentence).toSet, anas.toSet)
+    val r = sentenceAnagrams(sentence)
+    println(r.sorted)
+    println(anas.sorted)
+    println(r.sorted.toSet)
+    println(anas.sorted.toSet)
+    assertEquals(r.toSet, anas.toSet)
   }
 
 
